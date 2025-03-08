@@ -221,7 +221,7 @@ const { title } = Astro.props;
       <slot />
     </div>
     <footer
-      class="footer place-content-center md:gap-x-[125px] sm:gap-x-[100px] lg:gap-x-[200px] xl:gap-x-[250px] bg-base-200 text-base-content p-10"
+      class="footer sm:footer-horizontal bg-base-200 text-base-content p-10"
     >
       <nav>
         <h6 class="footer-title">El centre</h6>
@@ -264,7 +264,7 @@ const { title } = Astro.props;
       class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4"
     >
       <aside class="grid-flow-col items-center">
-        <img src="/logo-institut-sapalomera.png" alt="Logo" class="h-10 mr-4" />
+        <img src="/logo-institut-sapalomera.png" alt="Logo" class="h-10 mr-4" loading="lazy" />
         <p>
           INSTITUT SA PALOMERA | C/ Vilar Petit, 24 · 17300 Blanes (Girona)
           <br />
