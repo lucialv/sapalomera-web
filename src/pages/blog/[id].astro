@@ -1,42 +1,323 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import FormattedDate from "../../components/FormattedDate.astro";
-const { id } = Astro.params;
-// Realizamos un fetch al nuevo endpoint (por ejemplo, /api/posts/:postId)
-const res = await fetch(`/api/post?postId=${id}`);
-const postData = await res.json();
+import Layout from "@/layouts/Layout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import { Calendar, RefreshCw, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const title = postData.title;
-const pubDate = new Date(postData.pubDate);
-const updatedDate = postData.updatedDate
-  ? new Date(postData.updatedDate)
-  : null;
-const heroImage = postData.heroImage;
-const cleanedContent = postData.content;
+const { id } = Astro.params;
+
+let postData;
+let error = null;
+
+try {
+  const res = await fetch(`${Astro.url.origin}/api/post/${id}`);
+  if (!res.ok) {
+    throw new Error(`Error al obtener el post: ${res.status}`);
+  }
+  postData = await res.json();
+  
+  if (postData.error) {
+    throw new Error(postData.error);
+  }
+} catch (e) {
+  error = e instanceof Error ? e.message : 'Error desconocido';
+  console.error('Error fetching post:', e);
+}
+
+// Solo procesamos los datos si no hay error
+const title = postData?.title || 'Post no encontrado';
+const pubDate = postData?.pubDate || null;
+const updatedDate = postData?.updatedDate || null;
+const heroImage = postData?.heroImage;
+const images = postData?.images || [];
+const cleanedContent = postData?.content || '';
 ---
 
-<Layout title={`Post ${id}`}>
-  <article>
-    <div class="hero-image">
-      {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-    </div>
-    <div class="prose">
-      <div class="title">
-        <div class="date">
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div class="last-updated-on">
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </div>
-        <h1>{title}</h1>
-        <hr />
+<Layout title={error ? 'Error' : title}>
+  {error ? (
+    <div class="min-h-[50vh] flex items-center justify-center">
+      <div class="text-center p-8 bg-white rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold text-red-600 mb-4">Error</h1>
+        <p class="text-gray-700 mb-6">{error}</p>
+        <a 
+          href="/blog" 
+          class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+        >
+          Volver al blog
+        </a>
       </div>
-      <!-- Se usa el contenido ya procesado del endpoint -->
-      <div set:html={cleanedContent} />
     </div>
-  </article>
+  ) : (
+    <article class="max-w-4xl mx-auto px-4 py-8">
+      {images.length > 0 && (
+        <>
+          <!-- Breadcrumb -->
+          <nav class="mb-4" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+              <li>
+                <a href="/" class="hover:text-gray-900">Inici</a>
+                <span class="mx-2">/</span>
+              </li>
+              <li>
+                <a href="/blog" class="hover:text-gray-900">Blog</a>
+                <span class="mx-2">/</span>
+              </li>
+              <li class="text-gray-900 truncate max-w-[200px]" title={title}>
+                {title}
+              </li>
+            </ol>
+          </nav>
+
+          <div class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">{title}</h1>
+            <div class="flex flex-col sm:flex-row sm:items-center text-gray-600 sm:space-y-0 sm:space-x-4">
+              {pubDate && (
+                <div class="flex items-center">
+                  <Calendar className="h-5 w-5 mr-2" />
+                  <span class="mr-2">Publicat el</span>
+                  <FormattedDate date={pubDate} />
+                </div>
+              )}
+            </div>
+          </div>
+          <div>
+            <hr class="border-gray-200 mb-8" />
+            <div class="relative w-full h-[400px] overflow-hidden rounded-lg shadow-md">
+              <div id="gallery-container" class="w-full h-full">
+                {images.map((image, index) => (
+                  <img
+                    id={`gallery-image-${index}`}
+                    width={800}
+                    height={400}
+                    src={image.source_url}
+                    alt={image.title}
+                    class={`w-full h-full object-cover transition-opacity duration-500 ${
+                      index === 0 ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
+                    }`}
+                  />
+                ))}
+              </div>
+              <button 
+                id="openModalBtn"
+                class="absolute inset-0 hover:bg-black/20 focus:visible:bg-transparent transition-all duration-300 flex items-center justify-center group"
+              >
+                <Search className="h-8 w-8 text-black/0 group-hover:text-white/90 transition-all duration-300" />
+              </button>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div 
+            id="imageModal" 
+            class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div class="relative max-w-[90vw] max-h-[90vh]">
+              <div id="modal-gallery-container" class="relative">
+                {images.map((image, index) => (
+                  <img
+                    id={`modal-image-${index}`}
+                    src={image.source_url}
+                    alt={image.title}
+                    class={`max-w-full max-h-[85vh] object-contain transition-opacity duration-500 ${
+                      index === 0 ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
+                    }`}
+                  />
+                ))}
+              </div>
+              <button 
+                id="closeModalBtn"
+                class="absolute -top-1.5 -right-1.5 md:-top-6 md:-right-6 bg-white rounded-full p-2 shadow-lg text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition-colors"
+                aria-label="Cerrar imagen"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              <button 
+                id="prevImageBtn"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-lg text-gray-700 hover:text-gray-900 hover:bg-white transition-colors"
+                aria-label="Imagen anterior"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button 
+                id="nextImageBtn"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-lg text-gray-700 hover:text-gray-900 hover:bg-white transition-colors"
+                aria-label="Siguiente imagen"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </div>
+          </div>
+        </>
+      )}
+      
+      <div class="prose-container mt-8">
+        <div 
+          set:html={cleanedContent} 
+          class="content-container"
+        />
+      </div>
+    </article>
+  )}
 </Layout>
+
+<style>
+  .prose-container {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+
+  .content-container {
+    color: #374151;
+    line-height: 1.75;
+  }
+
+  .content-container :global(p) {
+    color: #374151;
+  }
+
+  .content-container :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .content-container :global(a) {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  .content-container :global(a:hover) {
+    color: #1d4ed8;
+  }
+
+  .content-container :global(strong) {
+    font-weight: 600;
+  }
+
+  .content-container :global(ul) {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-container :global(ol) {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Prevenir scroll cuando el modal está abierto */
+  :global(body.modal-open) {
+    overflow: hidden;
+  }
+
+  /* Asegurar que el modal está por encima de todo */
+  #imageModal {
+    z-index: 9999;
+  }
+</style>
+
+<script>
+  // Esperar a que el DOM esté cargado
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('imageModal');
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const prevBtn = document.getElementById('prevImageBtn');
+    const nextBtn = document.getElementById('nextImageBtn');
+    const galleryContainer = document.getElementById('gallery-container');
+    const modalGalleryContainer = document.getElementById('modal-gallery-container');
+
+    if (!modal || !openBtn || !closeBtn || !prevBtn || !nextBtn || !galleryContainer || !modalGalleryContainer) return;
+
+    let currentImageIndex = 0;
+    const images = Array.from(galleryContainer.querySelectorAll('img'));
+    const modalImages = Array.from(modalGalleryContainer.querySelectorAll('img'));
+    let autoPlayInterval: number | null = null;
+
+    function updateImages() {
+      images.forEach((img, index) => {
+        img.style.opacity = index === currentImageIndex ? '1' : '0';
+        img.style.position = index === currentImageIndex ? 'relative' : 'absolute';
+      });
+
+      modalImages.forEach((img, index) => {
+        img.style.opacity = index === currentImageIndex ? '1' : '0';
+        img.style.position = index === currentImageIndex ? 'relative' : 'absolute';
+      });
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      updateImages();
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      updateImages();
+    }
+
+    function startAutoPlay() {
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+      autoPlayInterval = window.setInterval(nextImage, 3000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+      }
+    }
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('modal-open');
+      stopAutoPlay();
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('modal-open');
+      startAutoPlay();
+    }
+
+    // Event listeners
+    openBtn.addEventListener('click', openModal);
+    
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextImage();
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      } else if (e.key === 'ArrowLeft' && !modal.classList.contains('hidden')) {
+        prevImage();
+      } else if (e.key === 'ArrowRight' && !modal.classList.contains('hidden')) {
+        nextImage();
+      }
+    });
+
+    // Iniciar autoplay en la galería principal
+    startAutoPlay();
+  });
+</script>

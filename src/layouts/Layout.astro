@@ -3,7 +3,9 @@ interface Props {
   title: string;
 }
 
-import "../styles/global.css";
+import "@/styles/global.css";
+import { Image } from 'astro:assets';
+import logo from '@/assets/logo-institut-sapalomera.png';
 const { title } = Astro.props;
 ---
 
@@ -13,8 +15,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/faviconv2.png" />
     <title>{title}</title>
   </head>
   <body>
@@ -38,13 +39,13 @@ const { title } = Astro.props;
           </div>
           <ul
             tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
             <li><a href="/">Inici</a></li>
             <li>
               <details name="header">
                 <summary>El centre</summary>
-                <ul class="p-2">
+                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                   <li><a href="/blog">Notícies</a></li>
                   <li><a href="/historia">Història</a></li>
                   <li><a href="/calendari">Calendari</a></li>
@@ -55,7 +56,7 @@ const { title } = Astro.props;
             <li>
               <details name="header">
                 <summary>Estudis</summary>
-                <ul class="p-2">
+                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                   <li><a href="/eso">ESO</a></li>
                   <li><a href="/batxillerat">Batxillerat</a></li>
                   <li><a href="/batxibac">Batxibac - Baccalauréat</a></li>
@@ -75,7 +76,7 @@ const { title } = Astro.props;
             <li>
               <details name="header">
                 <summary>Erasmus+</summary>
-                <ul class="p-2">
+                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                   <li><a href="/erasmus-cicles">Erasmus+ Cicles</a></li>
                   <li><a href="/erasmus-colab">Erasmus+ Projecte COLAB</a></li>
                 </ul>
@@ -87,7 +88,7 @@ const { title } = Astro.props;
             <li>
               <details name="header">
                 <summary>Alumnes</summary>
-                <ul class="p-2">
+                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                   <li>
                     <a href="https://mail.sapalomera.cat" target="_blank"
                       >Correu</a
@@ -114,9 +115,16 @@ const { title } = Astro.props;
             </li>
           </ul>
         </div>
-        <a href="/" class="btn btn-ghost text-xl">
-          <img src="/logo-institut-sapalomera.png" alt="logo" class="h-14" /></a
-        >
+        <a href="/" class="flex items-center">
+          <Image 
+            src={logo}
+            alt="logo" 
+            width={450}
+            height={174}
+            class="h-14 w-auto hover:scale-105 transition-transform duration-200"
+            loading="eager"
+          />
+        </a>
       </div>
       <div class="navbar-center hidden 2xl:flex">
         <ul class="menu menu-horizontal px-1">
@@ -124,7 +132,7 @@ const { title } = Astro.props;
           <li>
             <details name="header">
               <summary>El centre</summary>
-              <ul class="p-2">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                 <li><a href="/blog">Notícies</a></li>
                 <li><a href="/historia">Història</a></li>
                 <li><a href="/calendari">Calendari</a></li>
@@ -135,7 +143,7 @@ const { title } = Astro.props;
           <li>
             <details name="header">
               <summary>Estudis</summary>
-              <ul class="p-2">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                 <li><a href="/eso">ESO</a></li>
                 <li><a href="/batxillerat">Batxillerat</a></li>
                 <li><a href="/batxibac">Batxibac - Baccalauréat</a></li>
@@ -153,7 +161,7 @@ const { title } = Astro.props;
           <li>
             <details name="header">
               <summary>Erasmus+</summary>
-              <ul class="p-2">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                 <li><a href="/erasmus-cicles">Erasmus+ Cicles</a></li>
                 <li><a href="/erasmus-colab">Erasmus+ Projecte COLAB</a></li>
               </ul>
@@ -165,7 +173,7 @@ const { title } = Astro.props;
           <li>
             <details name="header">
               <summary>Alumnes</summary>
-              <ul class="p-2">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                 <li>
                   <a href="https://mail.sapalomera.cat" target="_blank"
                     >Correu</a
@@ -193,7 +201,7 @@ const { title } = Astro.props;
           <li>
             <details name="header">
               <summary>Professorat</summary>
-              <ul class="p-2">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
                 <li>
                   <a href="https://mail.sapalomera.cat" target="_blank"
                     >Correu</a
@@ -223,57 +231,62 @@ const { title } = Astro.props;
     <footer
       class="footer sm:footer-horizontal bg-base-200 text-base-content p-10"
     >
-      <nav>
-        <h6 class="footer-title">El centre</h6>
-        <a class="link link-hover">El centre</a>
-        <a class="link link-hover">Notícies</a>
-        <a class="link link-hover">Fotografies</a>
-      </nav>
-      <nav>
-        <h6 class="footer-title">Els estudis</h6>
-        <a class="link link-hover">ESO</a>
-        <a class="link link-hover">Batxillerat</a>
-        <a class="link link-hover">Batxibac - Baccalauréat</a>
-        <a class="link link-hover">Batxillerat nocturn</a>
-        <a class="link link-hover">Sistemes Microinformàtics i Xarxes (SMX)</a>
-        <a class="link link-hover"
-          >Administració de Sistemes en Xarxa (ASIX) DUAL</a
-        >
-        <a class="link link-hover"
-          >Desenvolupament d'Aplicacions Web (DAW) DUAL</a
-        >
-      </nav>
-      <nav>
-        <h6 class="footer-title">RECURSOS EDUCATIUS</h6>
-        <a class="link link-hover">Biblioteca</a>
-        <a class="link link-hover">Orientació Acadèmica</a>
-        <a class="link link-hover">WEERAS</a>
-        <a class="link link-hover">iEDUCA</a>
-      </nav>
-      <nav>
-        <h6 class="footer-title">INFORMACIÓ</h6>
-        <a class="link link-hover">Contacte</a>
-        <a class="link link-hover">Telegram</a>
-        <a class="link link-hover">AMPA</a>
-        <a class="link link-hover"
-          >Seguiment de l'alumnat per part de les famílies</a
-        >
-      </nav>
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <nav>
+            <h6 class="footer-title">EL CENTRE</h6>
+            <a href="/el-centre" class="link link-hover block">El centre</a>
+            <a href="/blog" class="link link-hover block">Notícies</a>
+            <a href="/fotografies" class="link link-hover block">Fotografies</a>
+          </nav>
+          <nav>
+            <h6 class="footer-title">ELS ESTUDIS</h6>
+            <a href="/eso" class="link link-hover block">ESO</a>
+            <a href="/batxillerat" class="link link-hover block">Batxillerat</a>
+            <a href="/batxibac" class="link link-hover block">Batxibac - Baccalauréat</a>
+            <a href="/batxillerat-nocturn" class="link link-hover block">Batxillerat nocturn</a>
+            <a href="/cicles-formatius/smx" class="link link-hover block">Sistemes Microinformàtics i Xarxes (SMX)</a>
+            <a href="/cicles-formatius/asix" class="link link-hover block">Administració de Sistemes en Xarxa (ASIX) DUAL</a>
+            <a href="/cicles-formatius/daw" class="link link-hover block">Desenvolupament d'Aplicacions Web (DAW) DUAL</a>
+          </nav>
+          <nav>
+            <h6 class="footer-title">RECURSOS EDUCATIUS</h6>
+            <a href="/biblioteca" class="link link-hover block">Biblioteca</a>
+            <a href="/orientacio-academica" class="link link-hover block">Orientació Acadèmica</a>
+            <a href="/weeras" class="link link-hover block">WEERAS</a>
+            <a href="https://sapalomera.ieduca.com" target="_blank" class="link link-hover block">iEDUCA</a>
+          </nav>
+          <nav>
+            <h6 class="footer-title">INFORMACIÓ</h6>
+            <a href="/contacte" class="link link-hover block">Contacte</a>
+            <a href="/telegram" class="link link-hover block">Telegram</a>
+            <a href="/ampa" class="link link-hover block">AMPA</a>
+            <a href="/seguiment-alumnat" class="link link-hover block">Seguiment de l'alumnat per part de les famílies</a>
+          </nav>
+        </div>
+      </div>
     </footer>
     <footer
       class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4"
     >
-      <aside class="grid-flow-col items-center">
-        <img src="/logo-institut-sapalomera.png" alt="Logo" class="h-10 mr-4" loading="lazy" />
-        <p>
-          INSTITUT SA PALOMERA | C/ Vilar Petit, 24 · 17300 Blanes (Girona)
-          <br />
-          Tel. 972 350 909 | Fax 972 352 440 | info@sapalomera.cat
-        </p>
-      </aside>
-      <nav class="md:place-self-center md:justify-self-end">
-        <div class="grid grid-flow-col gap-4">
-          <a>
+      <div class="container mx-auto max-w-6xl flex justify-between items-center">
+        <div class="flex items-center gap-4">
+          <Image 
+            src={logo}
+            alt="Logo" 
+            width={450}
+            height={174}
+            class="h-10 w-auto"
+            loading="lazy"
+          />
+          <p class="text-sm">
+            INSTITUT SA PALOMERA | C/ Vilar Petit, 24 · 17300 Blanes (Girona)
+            <br />
+            Tel. 972 350 909 | Fax 972 352 440 | info@sapalomera.cat
+          </p>
+        </div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:opacity-80 transition-opacity">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -286,7 +299,7 @@ const { title } = Astro.props;
               ></path>
             </svg>
           </a>
-          <a>
+          <a href="#" class="hover:opacity-80 transition-opacity">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -299,7 +312,7 @@ const { title } = Astro.props;
               ></path>
             </svg>
           </a>
-          <a>
+          <a href="#" class="hover:opacity-80 transition-opacity">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -313,7 +326,7 @@ const { title } = Astro.props;
             </svg>
           </a>
         </div>
-      </nav>
+      </div>
     </footer>
   </body>
 </html>

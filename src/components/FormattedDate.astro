@@ -4,11 +4,21 @@ interface Props {
 }
 
 const { date } = Astro.props;
-// Intenta convertir el valor recibido a Date
-const dateObj = new Date(date);
 
-// Verifica si la fecha es válida
-const isValidDate = !isNaN(dateObj.getTime());
+// Función para validar y convertir la fecha
+const parseDate = (dateInput: string | Date): Date | null => {
+  if (dateInput instanceof Date) {
+    return !isNaN(dateInput.getTime()) ? dateInput : null;
+  }
+  
+  // Intenta parsear la fecha
+  const parsedDate = new Date(dateInput);
+  return !isNaN(parsedDate.getTime()) ? parsedDate : null;
+};
+
+const dateObj = parseDate(date);
+const isValidDate = dateObj !== null;
+
 if (!isValidDate) {
   console.error("Fecha inválida recibida en FormattedDate:", date);
 }
@@ -16,12 +26,12 @@ if (!isValidDate) {
 
 {isValidDate ? (
   <time datetime={dateObj.toISOString()}>
-    {dateObj.toLocaleDateString('ca-CA', {
+    {new Intl.DateTimeFormat('ca-CA', {
       year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    })}
+      month: 'long',
+      day: 'numeric'
+    }).format(dateObj)}
   </time>
 ) : (
-  <time>Fecha inválida</time>
+  <span class="text-gray-500">Fecha no disponible</span>
 )}

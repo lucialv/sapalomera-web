@@ -1,10 +1,16 @@
-import { getPageInfo } from "../../../lib/wp.ts";
+import { getPageInfo } from "@/lib/wp.ts";
 
 export async function GET() {
-  const posts = await getPageInfo("posts?page=1&per_page=4&_embed");
+  const postsData = await getPageInfo("posts?page=1&per_page=4&_embed");
+  
+  if (!postsData || !Array.isArray(postsData)) {
+    return new Response(JSON.stringify([]), {
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   const filteredPosts = await Promise.all(
-    posts.map(async (post: any) => {
+    postsData.map(async (post: any) => {
       let categories = [];
       const embeddedTerms = post._embedded?.["wp:term"]?.[0];
 
@@ -30,27 +36,26 @@ export async function GET() {
         );
       }
 
-      // Se corrige la propiedad y se usa el índice 0
-      const heroImageHref =
-        post._links?.["wp:featuredmedia"]?.[0]?.href || null;
-      let heroImageGuid = null;
+      const heroImageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
 
-      if (heroImageHref) {
-        try {
-          const imageRes = await fetch(heroImageHref);
-          const imageData = await imageRes.json();
-          heroImageGuid = imageData.guid?.rendered || null;
-        } catch (error) {
-          console.error("Error fetching image data:", error);
-        }
-      }
+      // Procesar el excerpt aquí para asegurarnos de que está limpio
+      let excerpt = post.excerpt?.rendered || '';
+      // Eliminar shortcodes de WPBakery
+      excerpt = excerpt.replace(/\[.*?\]/g, '');
+      // Eliminar tags HTML
+      excerpt = excerpt.replace(/<\/?[^>]+(>|$)/g, '');
+      // Decodificar entidades HTML
+      excerpt = excerpt.replace(/&[^;]+;/g, ' ');
+      // Limpiar espacios múltiples
+      excerpt = excerpt.replace(/\s+/g, ' ').trim();
 
       return {
         slug: post.id,
         title: post.title.rendered,
-        heroImage: heroImageGuid,
+        heroImage: heroImageUrl,
         categories: categories.map((cat: any) => cat.name),
         date: post.date,
+        excerpt: excerpt,
       };
     }),
   );
