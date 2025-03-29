@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+const { id } = Astro.params;
+// Realizamos un fetch al nuevo endpoint (por ejemplo, /api/posts/:postId)
+const res = await fetch(`/api/post?postId=${id}`);
+const postData = await res.json();
+
+const title = postData.title;
+const pubDate = new Date(postData.pubDate);
+const updatedDate = postData.updatedDate
+  ? new Date(postData.updatedDate)
+  : null;
+const heroImage = postData.heroImage;
+const cleanedContent = postData.content;
+---
+
+<Layout title={`Post ${id}`}>
+  <article>
+    <div class="hero-image">
+      {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+    </div>
+    <div class="prose">
+      <div class="title">
+        <div class="date">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1>{title}</h1>
+        <hr />
+      </div>
+      <!-- Se usa el contenido ya procesado del endpoint -->
+      <div set:html={cleanedContent} />
+    </div>
+  </article>
+</Layout>
