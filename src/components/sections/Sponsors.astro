@@ -1,0 +1,151 @@
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Centre financiat per</h2>
+    <div class="sponsors-container">
+      <div class="sponsors-track">
+        <div class="sponsors-slide">
+          <div class="sponsor-item">
+            <img
+              src="/sponsors/NextGenerationEU.png"
+              alt="Next Generation EU"
+            />
+          </div>
+          <div class="sponsor-item">
+            <img src="/sponsors/gobes.svg" alt="Gobierno de España" />
+          </div>
+          <div class="sponsor-item">
+            <img
+              src="/sponsors/PRTR.png"
+              alt="Plan de Recuperación, Transformación y Resiliencia"
+            />
+          </div>
+          <div class="sponsor-item">
+            <img
+              src="/sponsors/NextGenerationCatalunya.png"
+              alt="Next Generation Catalunya"
+            />
+          </div>
+          <div class="sponsor-item">
+            <img src="/sponsors/gobca.png" alt="Generalitat de Catalunya" />
+          </div>
+        </div>
+        <!-- Duplicado -->
+        <div class="sponsors-slide">
+          <div class="sponsor-item">
+            <img
+              src="/sponsors/NextGenerationEU.png"
+              alt="Next Generation EU"
+            />
+          </div>
+          <div class="sponsor-item">
+            <img src="/sponsors/gobes.svg" alt="Gobierno de España" />
+          </div>
+          <div class="sponsor-item">
+            <img
+              src="/sponsors/PRTR.png"
+              alt="Plan de Recuperación, Transformación y Resiliencia"
+            />
+          </div>
+          <div class="sponsor-item">
+            <img
+              src="/sponsors/NextGenerationCatalunya.png"
+              alt="Next Generation Catalunya"
+            />
+          </div>
+          <div class="sponsor-item">
+            <img src="/sponsors/gobca.png" alt="Generalitat de Catalunya" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sponsors-container {
+    overflow: hidden;
+    position: relative;
+    background: white;
+    padding: 20px 0;
+  }
+
+  .sponsors-container::before,
+  .sponsors-container::after {
+    content: "";
+    height: 100%;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+  .sponsors-container::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+  }
+
+  .sponsors-container::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+  }
+
+  .sponsors-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+    will-change: transform;
+  }
+
+  .sponsors-slide {
+    display: flex;
+    gap: 40px;
+  }
+
+  .sponsor-item {
+    flex: 0 0 auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sponsor-item img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sponsors-track {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sponsors-container::before,
+    .sponsors-container::after {
+      width: 50px;
+    }
+
+    .sponsors-slide {
+      gap: 20px;
+    }
+
+    .sponsor-item {
+      height: 60px;
+    }
+
+    .sponsors-track {
+      animation: scroll 20s linear infinite;
+    }
+  }
+</style>

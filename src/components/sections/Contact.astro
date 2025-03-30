@@ -1,0 +1,177 @@
+---
+import { Mail, Phone, MapPin } from "lucide-react";
+---
+
+<section id="contacte" class="py-8 sm:py-24">
+  <div class="container max-w-[450px] mx-auto px-4 md:max-w-6xl">
+    <div class="text-center mb-6 sm:mb-8">
+      <h2 class="text-2xl sm:text-4xl font-bold text-indigo-950 mb-2 sm:mb-4">
+        Contacte
+      </h2>
+      <p class="text-indigo-600 text-sm sm:text-base max-w-2xl mx-auto">
+        Poseu-vos en contacte amb nosaltres per a qualsevol consulta sobre els
+        nostres serveis educatius.
+      </p>
+    </div>
+
+    <div
+      class="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-3xl overflow-hidden shadow-xl shadow-indigo-200"
+    >
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+        <!-- Información de contacto -->
+        <div
+          class="lg:col-span-4 bg-gradient-to-br from-indigo-600 to-indigo-700 p-4 sm:p-8 text-white relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)] pointer-events-none"
+          >
+          </div>
+          <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-8 relative">
+            Informació de contacte
+          </h3>
+          <div class="space-y-3 sm:space-y-6 relative">
+            <div
+              class="flex items-center space-x-3 sm:space-x-4 group hover:translate-x-2 transition-transform duration-300"
+            >
+              <div
+                class="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <p class="text-xs sm:text-base">
+                C/ Vilar Petit, 24 · 17300 Blanes (Girona)
+              </p>
+            </div>
+            <div
+              class="flex items-center space-x-3 sm:space-x-4 group hover:translate-x-2 transition-transform duration-300"
+            >
+              <div
+                class="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <div class="text-xs sm:text-base">
+                <p>Tel. 972 350 909</p>
+                <p>Fax 972 352 440</p>
+              </div>
+            </div>
+            <div
+              class="flex items-center space-x-3 sm:space-x-4 group hover:translate-x-2 transition-transform duration-300"
+            >
+              <div
+                class="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <p class="text-xs sm:text-base">info@sapalomera.cat</p>
+            </div>
+
+            <div class="pt-3 sm:pt-6 border-t border-white/20">
+              <h4 class="text-xs sm:text-base font-semibold mb-2 sm:mb-4">
+                HORARI DE SECRETARIA
+              </h4>
+              <div class="space-y-2">
+                <div
+                  class="inline-flex items-center px-2 sm:px-3 py-1 rounded-full bg-white/10 text-xs sm:text-sm"
+                >
+                  <span class="font-medium">Matins:</span>
+                  <span class="ml-2">de 9h a 14h</span>
+                </div>
+                <div
+                  class="inline-flex items-center px-2 sm:px-3 py-1 rounded-full bg-white/10 text-xs sm:text-sm"
+                >
+                  <span class="font-medium">Tardes:</span>
+                  <span class="ml-2">dilluns i dimarts de 16h a 18h</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 sm:mt-6 w-full h-[120px] sm:h-[250px] relative">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1053.5734033082238!2d2.780575438688978!3d41.67830249498711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb1628ecd3dc15%3A0x412aec2352727837!2sInstitut%20Sa%20Palomera!5e0!3m2!1sen!2ses!4v1743334854815!5m2!1sen!2ses"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <div
+          class="lg:col-span-8 p-4 sm:p-8 lg:p-12 bg-gradient-to-br from-white to-indigo-50/50"
+        >
+          <form class="space-y-3 sm:space-y-6">
+            <div class="grid grid-cols-1 gap-3 sm:gap-6">
+              <div class="form-control">
+                <label class="label py-0.5 sm:py-1">
+                  <span
+                    class="label-text text-indigo-950 font-medium text-xs sm:text-base"
+                    >Nom *</span
+                  >
+                </label>
+                <input
+                  type="text"
+                  placeholder="El vostre nom"
+                  class="input input-bordered w-full h-9 sm:h-12 bg-white border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300 placeholder:text-indigo-200 text-xs sm:text-base"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label class="label py-0.5 sm:py-1">
+                  <span
+                    class="label-text text-indigo-950 font-medium text-xs sm:text-base"
+                    >Correu electrònic *</span
+                  >
+                </label>
+                <input
+                  type="email"
+                  placeholder="el-vostre@correu.com"
+                  class="input input-bordered w-full h-9 sm:h-12 bg-white border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300 placeholder:text-indigo-200 text-xs sm:text-base"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-control">
+              <label class="label py-0.5 sm:py-1">
+                <span
+                  class="label-text text-indigo-950 font-medium text-xs sm:text-base"
+                  >Assumpte *</span
+                >
+              </label>
+              <input
+                type="text"
+                placeholder="En què us podem ajudar?"
+                class="input input-bordered w-full h-9 sm:h-12 bg-white border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300 placeholder:text-indigo-200 text-xs sm:text-base"
+                required
+              />
+            </div>
+            <div class="form-control">
+              <label class="label py-0.5 sm:py-1">
+                <span
+                  class="label-text text-indigo-950 font-medium text-xs sm:text-base"
+                  >Missatge *</span
+                >
+              </label>
+              <textarea
+                class="textarea textarea-bordered min-h-20 sm:min-h-32 w-full bg-white border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300 placeholder:text-indigo-200 max-h-[275px] scrollbar-none text-xs sm:text-base resize-none"
+                placeholder="Escriviu el vostre missatge aquí..."
+                required></textarea>
+            </div>
+            <div class="form-control">
+              <button
+                class="btn bg-indigo-600 hover:bg-indigo-700 text-white border-none normal-case text-xs sm:text-base h-9 sm:h-12 px-4 sm:px-8 shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto"
+              >
+                Enviar missatge
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

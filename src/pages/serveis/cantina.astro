@@ -1,0 +1,179 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { CalendarClock } from "lucide-react";
+
+const begudes = [
+  { nombre: "Café", precio: 1.2 },
+  { nombre: "Tallat", precio: 1.4 },
+  { nombre: "Café amb llet", precio: 1.6 },
+  { nombre: "Got de llet", precio: 1.2 },
+  { nombre: "Te, infusions", precio: 1.45, complemento: 0.1 },
+  { nombre: "Suc natural", precio: 2.4 },
+  { nombre: "Refresc de llauna", precio: 1.15 },
+  { nombre: "Cocacola, Nestea, Aquarius", precio: 1.4 },
+  { nombre: "Cacaolat", precio: 1.2 },
+  { nombre: "Sucs", precio: 1.0 },
+  { nombre: "Aigua 33cc", precio: 0.6 },
+  { nombre: "Aigua 50cc", precio: 0.8 },
+  { nombre: "Aigua 1.50cc", precio: 1.1 },
+];
+
+const entrepansGrans = [
+  { nombre: "Crema xocolata", precio: 2.0 },
+  { nombre: "Truita", precio: 2.2 },
+  { nombre: "Frankfurt", precio: 2.2 },
+  { nombre: "Pernil salat", precio: 2.2 },
+  { nombre: "Formatge", precio: 2.2 },
+  { nombre: "Llonganissa", precio: 2.2 },
+  { nombre: "Xoriço", precio: 2.2 },
+  { nombre: "Pernil dolç", precio: 2.2 },
+  { nombre: "Gall d'indi", precio: 2.2 },
+  { nombre: "Fuet", precio: 2.2 },
+  { nombre: "Bacon", precio: 2.4 },
+  { nombre: "Tonyina", precio: 2.4 },
+  { nombre: "Truita patata", precio: 2.4 },
+];
+
+const pastes = [
+  { nombre: "Triangle", precio: 1.5 },
+  { nombre: "Canyes de xoco o crema", precio: 1.6 },
+  { nombre: "Croissant", precio: 1.2 },
+  { nombre: "Croissant xoco", precio: 1.5 },
+  { nombre: "Dònuts sucre", precio: 1.0 },
+  { nombre: "Dònuts xoco", precio: 1.4 },
+  { nombre: "Coques casolanes", precio: 1.2 },
+  { nombre: "Peça de fruita", precio: 0.8 },
+  { nombre: "Got de fruita", precio: 1.2 },
+];
+
+const entrepansEspecials = [
+  { nombre: "Calents de pollastre llom, botifarra etc", precio: 3.5 },
+  { nombre: "Complements", precio: 1.2 },
+  { nombre: "Vegetals de tonyina o fruita", precio: 2.8 },
+  { nombre: "Entrepà mini especial", precio: 1.6 },
+];
+
+const combinats = [
+  { nombre: "Combinat 1 (2 plats, postres i aigua)", precio: 12.0 },
+  { nombre: "Combinat 2 (1 plat, postres i aigua)", precio: 8.5 },
+  { nombre: "Combinat 3 (1 plat)", precio: 7.5 },
+  { nombre: "Combinat 4 (setmanal per alumnes, menú complert)", precio: 9.0 },
+];
+---
+
+<Layout title="La Cantina">
+  <div class="max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-indigo-900 mb-8">La Cantina</h1>
+    <!-- horarioo -->
+    <div class="bg-indigo-50 rounded-lg shadow-sm p-4 h-32 mb-8 w-64">
+      <div class="flex items-center mb-2">
+        <CalendarClock className="w-6 h-6 text-indigo-600" />
+        <h2 class="text-xl font-bold text-indigo-900 ml-2">Horari</h2>
+      </div>
+      <p class="badge badge-soft badge-primary">Dilluns a Divendres</p>
+      <p class="badge badge-soft badge-primary">Continu de 07:00h a 20:30h</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- bebidas -->
+      <div class="bg-white rounded-lg shadow-sm p-4">
+        <h2 class="text-xl font-bold text-indigo-900 mb-2">Begudes</h2>
+        <div class="grid grid-cols-1 gap-2">
+          {
+            begudes.map((item) => (
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-800">{item.nombre}</span>
+                <div class="badge badge-primary badge-soft">
+                  {item.precio.toFixed(2)}€
+                  {item.complemento && (
+                    <span class="ml-1 text-xs">
+                      (+{item.complemento.toFixed(2)}€)
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- bocatas grandes -->
+      <div class="bg-white rounded-lg shadow-sm p-4">
+        <h2 class="text-xl font-bold text-indigo-900 mb-2">Entrepans Grans</h2>
+        <div class="grid grid-cols-1 gap-2">
+          {
+            entrepansGrans.map((item) => (
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-800">{item.nombre}</span>
+                <div class="badge badge-primary badge-soft">
+                  {item.precio.toFixed(2)}€
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- postres -->
+      <div class="bg-white rounded-lg shadow-sm p-4">
+        <h2 class="text-xl font-bold text-indigo-900 mb-2">Pastes</h2>
+        <div class="grid grid-cols-1 gap-2">
+          {
+            pastes.map((item) => (
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-800">{item.nombre}</span>
+                <div class="badge badge-primary badge-soft">
+                  {item.precio.toFixed(2)}€
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Bocatas especiales -->
+      <div class="bg-white rounded-lg shadow-sm p-4">
+        <h2 class="text-xl font-bold text-indigo-900 mb-2">
+          Entrepans Especials
+        </h2>
+        <div class="grid grid-cols-1 gap-2">
+          {
+            entrepansEspecials.map((item) => (
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-800">{item.nombre}</span>
+                <div class="badge badge-primary badge-soft">
+                  {item.precio.toFixed(2)}€
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Combinaos -->
+      <div class="bg-white rounded-lg shadow-sm p-4">
+        <h2 class="text-xl font-bold text-indigo-900 mb-2">Combinats</h2>
+        <div class="grid grid-cols-1 gap-2">
+          {
+            combinats.map((item) => (
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-800">{item.nombre}</span>
+                <div class="badge badge-primary badge-soft">
+                  {item.precio.toFixed(2)}€
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Pizza mu rica pero mu cara -->
+    <div class="mt-6 bg-indigo-50 rounded-lg p-4 text-center">
+      <p class="text-lg font-semibold text-indigo-900">
+        Dilluns i dijous (18:00h)
+        <span class="badge badge-primary badge-soft ml-2">PIZZA 1,70€</span>
+      </p>
+    </div>
+  </div>
+</Layout>

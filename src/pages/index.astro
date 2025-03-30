@@ -1,7 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Features from "@/components/sections/Features.astro";
+import Programs from "@/components/sections/Programs.astro";
+import Sponsors from "@/components/sections/Sponsors.astro";
+import Contact from "@/components/sections/Contact.astro";
 ---
 
-<Layout title="Sa Palomera">
-  <!-- TODO: LANDING PAGE -->
+<Layout title="Institut Sa Palomera">
+  <div class="flex flex-col gap-4">
+    <Hero />
+    <Features />
+    <Programs />
+    <Sponsors />
+    <Contact />
+  </div>
 </Layout>
