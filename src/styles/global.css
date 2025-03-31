@@ -2,3 +2,7 @@
 @plugin "daisyui" {
   themes: light;
 }
+
+.fredoka {
+  font-family: "Fredoka One", system-ui;
+}

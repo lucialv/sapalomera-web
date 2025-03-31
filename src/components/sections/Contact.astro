@@ -86,7 +86,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
               </div>
             </div>
 
-            <div class="mt-3 sm:mt-6 w-full h-[120px] sm:h-[250px] relative">
+            <div class="mt-3 sm:mt-6 w-full h-[120px] sm:h-[200px] relative">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1053.5734033082238!2d2.780575438688978!3d41.67830249498711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb1628ecd3dc15%3A0x412aec2352727837!2sInstitut%20Sa%20Palomera!5e0!3m2!1sen!2ses!4v1743334854815!5m2!1sen!2ses"
                 width="100%"
@@ -161,6 +161,22 @@ import { Mail, Phone, MapPin } from "lucide-react";
                 class="textarea textarea-bordered min-h-20 sm:min-h-32 w-full bg-white border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300 placeholder:text-indigo-200 max-h-[275px] scrollbar-none text-xs sm:text-base resize-none"
                 placeholder="Escriviu el vostre missatge aquí..."
                 required></textarea>
+            </div>
+            <div class="form-control">
+              <label class="label cursor-pointer justify-start gap-2">
+                <input
+                  type="checkbox"
+                  class="checkbox checkbox-primary bg-white border-indigo-100"
+                  required
+                />
+                <span class="label-text text-xs sm:text-sm text-indigo-800">
+                  Accepto la <a
+                    href="/politica-de-privacitat"
+                    class="underline font-medium hover:text-indigo-600 transition-colors"
+                    >política de privacitat</a
+                  > *
+                </span>
+              </label>
             </div>
             <div class="form-control">
               <button

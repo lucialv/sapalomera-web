@@ -2,27 +2,86 @@
 interface Props {
   title: string;
 }
-
+import "@fontsource/fredoka-one";
 import "@/styles/global.css";
 import { Image } from "astro:assets";
 import logo from "@/assets/logo-institut-sapalomera.png";
 const { title } = Astro.props;
+
+// Get current path to check if we're on the homepage
+const currentPath = Astro.url.pathname;
+const isHomepage = currentPath === "/";
 ---
 
 <!doctype html>
 <html data-theme="light" lang="ca">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/faviconv2.png" />
+
+    <!-- Title -->
     <title>{title}</title>
+
+    <!-- Description -->
+    <meta
+      name="description"
+      content="Web del centre educatiu de secundària Institut Sa Palomera a on s'imparteixen els estudis d'ESO, Batxillerat (Batxibac), Batxillerat nocturn i Cicles d'Informàtica (SMX, ASIX, DAW-DUAL) situat a la població de Blanes"
+    />
+
+    <!-- Keywords -->
+    <meta
+      name="keywords"
+      content="Institut Sa Palomera, ESO, Batxillerat, Cicles Formatius, Informàtica, Grau Mitjà, Grau Superior, Educació, Blanes, Institut públic, Formació professional, Estudis tecnològics"
+    />
+
+    <!-- Author -->
+    <meta name="author" content="Institut Sa Palomera" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Institut Sa Palomera - ESO, Batxillerat, Batxillerat nocturn i Cicles d'Informàtica a Blanes - Inici"
+    />
+    <meta
+      property="og:description"
+      content="Web del centre educatiu de secundària Institut Sa Palomera a on s'imparteixen els estudis d'ESO, Batxillerat (Batxibac), Batxillerat nocturn i Cicles d'Informàtica (SMX, ASIX, DAW-DUAL) situat a la població de Blanes"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ca_ES" />
+    <meta property="og:url" content="https://www.sapalomera.cat" />
+    <meta
+      property="og:image"
+      content="https://www.sapalomera.cat/assets/logo-sapalomera.png"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Institut Sa Palomera - ESO, Batxillerat, Batxillerat nocturn i Cicles d'Informàtica a Blanes - Inici"
+    />
+    <meta
+      name="twitter:description"
+      content="Web del centre educatiu de secundària Institut Sa Palomera a on s'imparteixen els estudis d'ESO, Batxillerat (Batxibac), Batxillerat nocturn i Cicles d'Informàtica (SMX, ASIX, DAW-DUAL) situat a la població de Blanes."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.sapalomera.cat/assets/logo-sapalomera.png"
+    />
   </head>
   <body>
-    <div class="navbar bg-base-100">
+    <div
+      id="navbar"
+      class={`navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isHomepage
+          ? "bg-transparent text-white"
+          : "bg-base-100 text-base-content"
+      }`}
+    >
       <div class="navbar-start">
         <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost 2xl:hidden">
+          <div tabindex="0" role="button" class="btn btn-ghost xl:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -158,7 +217,7 @@ const { title } = Astro.props;
           />
         </a>
       </div>
-      <div class="navbar-center hidden 2xl:flex">
+      <div class="navbar-center hidden xl:flex">
         <ul class="menu menu-horizontal px-1">
           <li><a href="/">Inici</a></li>
           <li>
@@ -263,7 +322,7 @@ const { title } = Astro.props;
         </ul>
       </div>
       <div class="navbar-end">
-        <a class="btn">Button</a>
+        <!-- <a class="btn">Button</a> -->
       </div>
     </div>
     <div class="flex items-center justify-center">
@@ -346,6 +405,11 @@ const { title } = Astro.props;
             Tel. 972 350 909 | Fax 972 352 440 | info@sapalomera.cat
           </p>
         </div>
+        <div class="text-sm">
+          <a href="/politica-de-privacitat" class="link link-hover"
+            >Política de privacitat</a
+          >
+        </div>
         <div class="flex gap-4">
           <a
             href="https://x.com/inssapalomera"
@@ -427,3 +491,30 @@ const { title } = Astro.props;
     scroll-behavior: smooth;
   }
 </style>
+
+<script>
+  // Only run this script on the homepage
+  if (window.location.pathname === "/") {
+    const navbar = document.getElementById("navbar");
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        navbar?.classList.remove("bg-transparent", "text-white");
+        navbar?.classList.add("bg-base-100", "shadow-md", "text-base-content");
+      } else {
+        navbar?.classList.add("bg-transparent", "text-white");
+        navbar?.classList.remove(
+          "bg-base-100",
+          "shadow-md",
+          "text-base-content",
+        );
+      }
+    };
+
+    // Run once on page load
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+  }
+</script>
