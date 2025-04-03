@@ -1,0 +1,149 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Clock, BookOpen, ListChecks } from "lucide-react";
+---
+
+<Layout
+  title="Institut Sa Palomera - Biblioteca"
+>
+  <!-- Hero -->
+  <div class="relative mt-[72px] bg-black/90 h-[200px] flex items-center justify-center">
+    <div class="absolute inset-0 opacity-30">
+      <img
+        src="/images/biblioteca.jpg"
+        alt="Biblioteca Header Image"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <h1 class="relative text-5xl md:text-6xl font-bold text-indigo-300">
+      Biblioteca
+    </h1>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-5 grid-rows-5 gap-4">
+      <!-- Horari -->
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:border-indigo-200 transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <Clock className="w-6 h-6 text-indigo-600" />
+          <h2 class="text-xl font-bold text-gray-900">
+            Quin horari fa?
+          </h2>
+        </div>
+
+        <div class="text-gray-600">
+          <p class="text-lg">
+            Dilluns, dimecres i divendres de 12:40 a 13 h.
+          </p>
+        </div>
+      </div>
+
+      <!-- Serveis -->
+      <div class="col-span-3 bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:border-indigo-200 transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <BookOpen className="w-6 h-6 text-indigo-600" />
+          <h2 class="text-xl font-bold text-gray-900">
+            Què hi podeu fer?
+          </h2>
+        </div>
+
+        <div class="h-full flex flex-col">
+          <div class="grid grid-cols-2 gap-x-8 gap-y-2 flex-grow">
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Fer servir els ordinadors per consultes i treballs</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Sala d'estudi</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Consulta de llibres i revistes</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Préstec de llibres*</span>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Presentacions de llibres amb els autors*</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Club de lectura*</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Intercanvi de llibres</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-indigo-600">•</span>
+                <span>Certamen de Lectura en Veu Alta</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500 mt-4 pt-4 border-t">* De moment, aquestes activitats encara no es poden realitzar.</p>
+        </div>
+      </div>
+
+      <!-- Normes -->
+      <div class="col-span-4 row-start-2 bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:border-indigo-200 transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <ListChecks className="w-6 h-6 text-indigo-600" />
+          <h2 class="text-xl font-bold text-gray-900">
+            Normes d'ús
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6">
+          <div class="space-y-3 text-gray-600">
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>La biblioteca és un espai de lectura i treball; cal estar-hi en silenci</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>L'entrada a la biblioteca, a l'hora del pati, s'ha de fer, com a molt tard, 10 minuts després de l'inici de l'esbarjo</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>Per afavorir el silenci, no es podrà entrar ni sortir continuament</span>
+            </div>
+          </div>
+          <div class="space-y-3 text-gray-600">
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>L'espai és limitat, no s'hi admetran més de 20 alumnes</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>No s'hi pot menjar ni beure</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>Si agafeu un llibre o una revista de les lleixes, no el retorneu al seu lloc. Deixeu-lo a la taula del professor</span>
+            </div>
+          </div>
+          <div class="space-y-3 text-gray-600">
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>El préstec de llibres es fa, només, a l'hora del pati</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>Cal retornar els llibres prestats dins del termini establert. Es pot demanar pròrroga, si cal</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-indigo-600 mt-1">•</span>
+              <span>Els ordinadors només es poden utilitzar per a activitats escolars</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
