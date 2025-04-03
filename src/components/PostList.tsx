@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import he from "he";
 
-const baseUrl = import.meta.env.SITE || "http://localhost:4321";
+const baseUrl = import.meta.env.URL_SITE;
 
 interface Post {
   slug: string;
