@@ -8,7 +8,6 @@ import { Image } from "astro:assets";
 import logo from "@/assets/logo-institut-sapalomera.png";
 const { title } = Astro.props;
 
-// Get current path to check if we're on the homepage
 const currentPath = Astro.url.pathname;
 const isHomepage = currentPath === "/";
 ---
@@ -18,7 +17,7 @@ const isHomepage = currentPath === "/";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/faviconv2.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Title -->
     <title>{title}</title>
@@ -74,14 +73,17 @@ const isHomepage = currentPath === "/";
     <div
       id="navbar"
       class={`navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isHomepage
-          ? "bg-transparent text-white"
-          : "bg-base-100 text-base-content"
+        isHomepage ? "bg-transparent " : "bg-base-100 text-base-content"
       }`}
     >
       <div class="navbar-start">
         <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost xl:hidden">
+          <div
+            tabindex="0"
+            role="button"
+            id="dropdown-button"
+            class="btn btn-ghost xl:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -98,104 +100,78 @@ const isHomepage = currentPath === "/";
           </div>
           <ul
             tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+            class="menu menu-sm dropdown-content text-black bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
             <li><a href="/">Inici</a></li>
             <li>
-              <details name="header">
+              <details name="el-centre">
                 <summary>El centre</summary>
-                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
-                  <li><a href="/blog">Notícies</a></li>
+                <ul class="pl-4">
+                  <li><a href="/noticies">Notícies</a></li>
                   <li><a href="/historia">Història</a></li>
                   <li><a href="/calendari">Calendari</a></li>
-                  <li><a href="/fotografies">Fotografies</a></li>
                 </ul>
               </details>
             </li>
             <li>
-              <details name="header">
+              <details name="estudis">
                 <summary>Estudis</summary>
-                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
-                  <li><a href="/eso">ESO</a></li>
-                  <li><a href="/batxillerat">Batxillerat</a></li>
-                  <li><a href="/batxibac">Batxibac - Baccalauréat</a></li>
+                <ul class="pl-4">
+                  <li><a href="/estudis/eso">ESO</a></li>
+                  <li><a href="/estudis/batxillerat">Batxillerat</a></li>
+                  <li><a href="/estudis/batxibac">Batxibac - Baccalauréat</a></li>
+                  <li><a href="/estudis/batxillerat-nocturn">Batxillerat nocturn</a></li>
                   <li>
-                    <a href="/batxillerat-nocturn">Batxillerat nocturn</a>
-                  </li>
-                  <li><a href="/cicles-formatius">Cicles Formatius</a></li>
-                  <li>
-                    <a href="/cursos-de-formacio-ocupacional-soc"
-                      >Cursos de formació ocupacional (SOC)</a
-                    >
+                    <details name="cicles-formatius">
+                      <summary>Cicles Formatius</summary>
+                      <ul class="pl-4">
+                        <li><a href="/cicles-formatius/smx">Sistemes Microinformàtics i Xarxes (SMX)</a></li>
+                        <li><a href="/cicles-formatius/daw">Desenvolupament d'Aplicacions Web (DAW) DUAL</a></li>
+                        <li><a href="/cicles-formatius/asix">Administració de Sistemes en Xarxa (ASIX) DUAL</a></li>
+                      </ul>
+                    </details>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <details name="header">
+              <details name="erasmus">
                 <summary>Erasmus+</summary>
-                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
+                <ul class="pl-4">
                   <li><a href="/erasmus-cicles">Erasmus+ Cicles</a></li>
                   <li><a href="/erasmus-colab">Erasmus+ Projecte COLAB</a></li>
                 </ul>
               </details>
             </li>
             <li>
-              <details name="header">
+              <details name="serveis">
                 <summary>Serveis</summary>
-                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
-                  <li>
-                    <a href="/borsa" target="_blank">Borsa de Treball</a>
-                  </li>
-                  <li>
-                    <a href="/cantina" target="_blank">Cantina</a>
-                  </li>
-                  <li><a href="/esfera" target="_blank">Biblioteca</a></li>
+                <ul class="pl-4">
+                  <li><a href="/borsa" target="_blank">Borsa de Treball</a></li>
+                  <li><a href="/cantina">Cantina</a></li>
+                  <li><a href="/biblioteca" target="_blank">Biblioteca</a></li>
                 </ul>
               </details>
             </li>
             <li>
-              <details name="header">
+              <details name="alumnes">
                 <summary>Alumnes</summary>
-                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
-                  <li>
-                    <a href="/correu" target="_blank">Correu</a>
-                  </li>
-                  <li>
-                    <a href="http://moodle.sapalomera.cat/" target="_blank"
-                      >Moodle ESO i BAT</a
-                    >
-                  </li>
-                  <li>
-                    <a href="http://moodlecf.sapalomera.cat/" target="_blank"
-                      >Moodle Cicles</a
-                    >
-                  </li>
-                  <li><a href="/weeras" target="_blanks">WEERAS</a></li>
-                  <li>
-                    <a href="/consell-de-delegats" target="_blank"
-                      >Consell de Delegats</a
-                    >
-                  </li>
+                <ul class="pl-4">
+                  <li><a href="/correu" target="_blank">Correu</a></li>
+                  <li><a href="http://moodle.sapalomera.cat/" target="_blank">Moodle ESO i BAT</a></li>
+                  <li><a href="http://moodlecf.sapalomera.cat/" target="_blank">Moodle Cicles</a></li>
+                  <li><a href="/weeras" target="_blank">WEERAS</a></li>
+                  <li><a href="/consell-de-delegats" target="_blank">Consell de Delegats</a></li>
                 </ul>
               </details>
             </li>
-
             <li>
-              <details name="header">
+              <details name="professorat">
                 <summary>Professorat</summary>
-                <ul class="p-2 bg-base-100 rounded-box absolute z-50">
-                  <li>
-                    <a href="/documentacio" target="_blank">Documentació</a>
-                  </li>
-                  <li>
-                    <a href="/correu" target="_blank">Correu</a>
-                  </li>
-                  <li>
-                    <a href="https://sapalomera.ieduca.com" target="_blank"
-                      >iEduca</a
-                    >
-                  </li>
+                <ul class="pl-4">
+                  <li><a href="/documentacio" target="_blank">Documentació</a></li>
+                  <li><a href="/correu" target="_blank">Correu</a></li>
+                  <li><a href="https://sapalomera.ieduca.com" target="_blank">iEduca</a></li>
                   <li><a href="/saga" target="_blank">Saga</a></li>
                   <li><a href="/esfera" target="_blank">Esfer@</a></li>
                 </ul>
@@ -221,58 +197,63 @@ const isHomepage = currentPath === "/";
         <ul class="menu menu-horizontal px-1">
           <li><a href="/">Inici</a></li>
           <li>
-            <details name="header">
+            <details name="el-centre">
               <summary>El centre</summary>
-              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
-                <li><a href="/blog">Notícies</a></li>
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50 text-black">
+                <li><a href="/noticies">Notícies</a></li>
                 <li><a href="/historia">Història</a></li>
                 <li><a href="/calendari">Calendari</a></li>
-                <li><a href="/fotografies">Fotografies</a></li>
               </ul>
             </details>
           </li>
           <li>
-            <details name="header">
+            <details name="estudis">
               <summary>Estudis</summary>
-              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50 text-black">
                 <li><a href="/eso">ESO</a></li>
                 <li><a href="/batxillerat">Batxillerat</a></li>
                 <li><a href="/batxibac">Batxibac - Baccalauréat</a></li>
                 <li><a href="/batxillerat-nocturn">Batxillerat nocturn</a></li>
-                <li><a href="/cicles-formatius">Cicles Formatius</a></li>
                 <li>
-                  <a href="/cursos-de-formacio-ocupacional-soc"
-                    >Cursos de formació ocupacional (SOC)</a
-                  >
+                  <details name="cicles-formatius">
+                    <summary>Cicles Formatius</summary>
+                    <ul class="p-2 bg-base-100 rounded-box absolute z-50 text-black">
+                      <li><a href="/cicles-formatius/smx">Sistemes Microinformàtics i Xarxes (SMX)</a></li>
+                      <li><a href="/cicles-formatius/daw">Desenvolupament d'Aplicacions Web (DAW) DUAL</a></li>
+                      <li><a href="/cicles-formatius/asix">Administració de Sistemes en Xarxa (ASIX) DUAL</a></li>
+                    </ul>
+                  </details>
                 </li>
               </ul>
             </details>
           </li>
           <li>
-            <details name="header">
+            <details name="erasmus">
               <summary>Erasmus+</summary>
-              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50 text-black">
                 <li><a href="/erasmus-cicles">Erasmus+ Cicles</a></li>
                 <li><a href="/erasmus-colab">Erasmus+ Projecte COLAB</a></li>
               </ul>
             </details>
           </li>
           <li>
-            <details name="header">
+            <details name="serveis">
               <summary>Serveis</summary>
-              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50 text-black">
                 <li>
                   <a href="/borsa" target="_blank">Borsa de Treball</a>
                 </li>
-                <li><a href="/cantina" target="_blank">Cantina</a></li>
+                <li>
+                  <a href="/cantina">Cantina</a>
+                </li>
                 <li><a href="/esfera" target="_blank">Biblioteca</a></li>
               </ul>
             </details>
           </li>
           <li>
-            <details name="header">
+            <details name="alumnes">
               <summary>Alumnes</summary>
-              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50 text-black">
                 <li>
                   <a href="/correu" target="_blank">Correu</a>
                 </li>
@@ -297,9 +278,9 @@ const isHomepage = currentPath === "/";
           </li>
 
           <li>
-            <details name="header">
+            <details name="professorat">
               <summary>Professorat</summary>
-              <ul class="p-2 bg-base-100 rounded-box absolute z-50">
+              <ul class="p-2 bg-base-100 rounded-box absolute z-50 text-black">
                 <li>
                   <a href="/documentacio" target="_blank">Documentació</a>
                 </li>
@@ -325,7 +306,7 @@ const isHomepage = currentPath === "/";
         <!-- <a class="btn">Button</a> -->
       </div>
     </div>
-    <div class="flex items-center justify-center">
+    <div>
       <slot />
     </div>
     <footer
@@ -335,28 +316,33 @@ const isHomepage = currentPath === "/";
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <nav>
             <h6 class="footer-title">EL CENTRE</h6>
-            <a href="/el-centre" class="link link-hover block">El centre</a>
-            <a href="/blog" class="link link-hover block">Notícies</a>
-            <a href="/fotografies" class="link link-hover block">Fotografies</a>
+            <a href="/#historia" class="link link-hover block">El centre</a>
+            <a href="/noticies" class="link link-hover block">Notícies</a>
           </nav>
           <nav>
             <h6 class="footer-title">ELS ESTUDIS</h6>
-            <a href="/eso" class="link link-hover block">ESO</a>
-            <a href="/batxillerat" class="link link-hover block">Batxillerat</a>
-            <a href="/batxibac" class="link link-hover block"
+            <a href="/estudis/eso" class="link link-hover block">ESO</a>
+            <a href="/estudis/batxillerat" class="link link-hover block">Batxillerat</a>
+            <a href="/estudis/batxibac" class="link link-hover block"
               >Batxibac - Baccalauréat</a
             >
-            <a href="/batxillerat-nocturn" class="link link-hover block"
+            <a href="/estudis/batxillerat-nocturn" class="link link-hover block"
               >Batxillerat nocturn</a
             >
-            <a href="/cicles-formatius/smx" class="link link-hover block"
+            <a href="/estudis/smx" class="link link-hover block"
               >Sistemes Microinformàtics i Xarxes (SMX)</a
             >
-            <a href="/cicles-formatius/asix" class="link link-hover block"
+            <a href="/estudis/asix" class="link link-hover block"
               >Administració de Sistemes en Xarxa (ASIX) DUAL</a
             >
-            <a href="/cicles-formatius/daw" class="link link-hover block"
+            <a href="/estudis/daw" class="link link-hover block"
               >Desenvolupament d'Aplicacions Web (DAW) DUAL</a
+            >
+            <a href="/estudis/daw-daw" class="link link-hover block"
+              >Curs Especialització en Desenvolupament de Videojocs i Realitat Virtual</a
+            >
+            <a href="/estudis/iabd" class="link link-hover block"
+              >Curs Especialització Intel·ligència Artificial i Big Data</a
             >
           </nav>
           <nav>
@@ -374,8 +360,7 @@ const isHomepage = currentPath === "/";
           </nav>
           <nav>
             <h6 class="footer-title">INFORMACIÓ</h6>
-            <a href="/contacte" class="link link-hover block">Contacte</a>
-            <a href="/telegram" class="link link-hover block">Telegram</a>
+            <a href="/#contacte" class="link link-hover block">Contacte</a>
             <a href="/ampa" class="link link-hover block">AMPA</a>
             <a href="/seguiment-alumnat" class="link link-hover block"
               >Seguiment de l'alumnat per part de les famílies</a
@@ -493,28 +478,67 @@ const isHomepage = currentPath === "/";
 </style>
 
 <script>
-  // Only run this script on the homepage
+  // esto solo pa la página de inicio
   if (window.location.pathname === "/") {
     const navbar = document.getElementById("navbar");
+    const dropdownButton = document.getElementById("dropdown-button");
 
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        navbar?.classList.remove("bg-transparent", "text-white");
+        navbar?.classList.remove(
+          "bg-transparent",
+          "text-black",
+          "xl:text-white",
+        );
+        dropdownButton?.classList.remove("text-white");
+        dropdownButton?.classList.add("text-black");
         navbar?.classList.add("bg-base-100", "shadow-md", "text-base-content");
       } else {
-        navbar?.classList.add("bg-transparent", "text-white");
+        dropdownButton?.classList.add("text-white");
+        navbar?.classList.add("bg-transparent", "text-black", "xl:text-white");
         navbar?.classList.remove(
           "bg-base-100",
           "shadow-md",
           "text-base-content",
         );
+        dropdownButton?.classList.remove("text-black");
       }
     };
 
-    // Run once on page load
     handleScroll();
 
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
   }
+
+  // esto es pa los menus pa que se cierren al hacer scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainMenus = document.querySelectorAll('details[name]:not([name="cicles-formatius"])');
+    
+    const handleMenuScroll = () => {
+      const allMenus = document.querySelectorAll('details[name]');
+      allMenus.forEach(menu => {
+        (menu as HTMLDetailsElement).open = false;
+      });
+    };
+
+    window.addEventListener("scroll", handleMenuScroll);
+    
+    // esto es pa que se cierren los menus principales excepto el que se está mostrando
+    mainMenus.forEach(menu => {
+      (menu as HTMLDetailsElement).addEventListener('toggle', (e) => {
+        if ((menu as HTMLDetailsElement).open) {
+          mainMenus.forEach(otherMenu => {
+            if (otherMenu !== menu) {
+              (otherMenu as HTMLDetailsElement).open = false;
+              // esto es pa que se cierren los submenus de cicles-formatius si no estamos en el menu de estudis
+              if ((menu as HTMLDetailsElement).getAttribute('name') !== 'estudis') {
+                const ciclesMenu = otherMenu.querySelector('details[name="cicles-formatius"]');
+                if (ciclesMenu) (ciclesMenu as HTMLDetailsElement).open = false;
+              }
+            }
+          });
+        }
+      });
+    });
+  });
 </script>
