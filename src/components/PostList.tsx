@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import he from "he";
 
-const baseUrl = import.meta.env.URL_SITE;
+const baseUrl = "https://sapalomera.lucia-dev.com";
 
 interface Post {
   slug: string;
