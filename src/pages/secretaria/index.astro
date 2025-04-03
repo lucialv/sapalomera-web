@@ -1,0 +1,137 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { CreditCard, GraduationCap } from "lucide-react";
+---
+
+<Layout
+  title="Institut Sa Palomera - ESO, Batxillerat, Batxillerat nocturn i Cicles d'Informàtica a Blanes - Secretaria"
+>
+  <!-- Hero -->
+  <div class="relative mt-[72px] bg-black/90 h-[200px] flex items-center justify-center">
+    <div class="absolute inset-0 opacity-30">
+      <img
+        src="/images/secretaria_head.jpg"
+        alt="Secretaria Header Image"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <h1 class="relative text-5xl md:text-6xl font-bold text-indigo-300">
+      Secretaria
+    </h1>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Pagament de quota de material -->
+      <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <CreditCard className="w-8 h-8 text-indigo-600" />
+            <h2 class="text-2xl font-bold text-gray-900">
+              Quota de material i preus públics
+            </h2>
+          </div>
+
+          <div class="space-y-4 text-gray-600">
+            <p class="text-lg">
+              Aquest mètode de pagament està reservat exclusivament per a la quota
+              de material i per als preus públic dels cicles formatius de grau
+              superior. <strong class="text-red-600 font-medium">No el feu servir per pagar sortides, exàmens ni altres conceptes</strong>.
+            </p>
+
+            <p class="text-gray-500">
+              Si desconeixeu l'IDALU, el podeu trobar al butlletí de notes amb el
+              nom d'identificador de l'alumne.
+            </p>
+
+            <div class="bg-rose-100 border-l-4 border-rose-400 p-4 my-6">
+              <p class="text-rose-500 font-medium">
+                MOLT IMPORTANT: aquelles famílies de 1r, 2n o 3r d'ESO que teniu
+                Motxilla Escolar, no heu de fer el pagament de la quota de material.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full bg-gray-50 p-4">
+          <iframe
+            src="https://www.edugestio.com/app_sapalomera/pagaments.php"
+            class="w-full rounded border border-gray-200"
+            style="height: 600px !important;"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Sol·licituds de títols -->
+      <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8 h-fit">
+        <div class="flex items-center gap-3 mb-6">
+          <GraduationCap className="w-8 h-8 text-indigo-600" />
+          <h2 class="text-2xl font-bold text-gray-900">
+            Sol·licitud de títols
+          </h2>
+        </div>
+
+        <div class="space-y-8">
+          <!-- Batxillerat i cicles formatius -->
+          <section class="space-y-4">
+            <h3 class="text-xl font-semibold text-gray-800">
+              Batxillerat i cicles formatius
+            </h3>
+            <div class="space-y-4 text-gray-600">
+              <p>
+                Per a tramitar el títol de batxillerat o cicles formatius, cal que
+                empleneu <a
+                  href="http://www.sapalomera.cat/wp-content/uploads/2023/01/sol·licitud_titols.pdf"
+                  class="text-indigo-600 hover:text-indigo-800 underline"
+                  >l'imprès de sol·licitud</a> i l'envieu a <span class="text-emerald-400 font-medium"
+                  >secretaria@sapalomera.cat</span> adjuntant:
+              </p>
+
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Fotocòpia del DNI</li>
+                <li>Fotocòpia del carnet de família nombrosa actualitzat (si s'al·lega)</li>
+                <li>Fotocòpia de les notes finals</li>
+              </ul>
+
+              <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+                <p>
+                  Des de secretaria us enviarem, per correu electrònic, la carta de
+                  pagament que podreu liquidar a qualsevol entitat bancària.
+                </p>
+              </div>
+
+              <p>
+                Una vegada fet el pagament, haureu de portar el comprovant original,
+                conjuntament amb el rebut de pagament, a la secretaria del centre
+                on li posarem el segell oficial.
+              </p>
+            </div>
+          </section>
+
+          <!-- Certificats de català -->
+          <section class="space-y-4">
+            <h3 class="text-xl font-semibold text-gray-800">
+              Certificats de català
+            </h3>
+            <div class="space-y-4 text-gray-600">
+              <p>
+                Cal que empleneu la <a
+                  href="http://www.sapalomera.cat/wp-content/uploads/2023/01/sol·licitud_b2_c1.pdf"
+                  class="text-indigo-600 hover:text-indigo-800 underline"
+                  >sol·licitud de petició del nivell de català</a> i l'envieu per correu electrònica a <span
+                  class="text-emerald-400 font-medium">secretaria@sapalomera.cat</span>.
+              </p>
+
+              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4">
+                <p>
+                  En el termini de 5 dies laborables podreu passar a recollir-la
+                  per la consergeria de l'institut de 8 h a 20 h.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
