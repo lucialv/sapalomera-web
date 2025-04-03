@@ -1,0 +1,23 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  href?: string;
+}
+
+const { src, alt, href } = Astro.props;
+---
+
+<div class="flex justify-center items-center p-4">
+  {
+    src ? (
+      <img
+        src={src}
+        alt={alt}
+        class="h-16 object-contain hover:opacity-80 transition-opacity"
+      />
+    ) : (
+      <img src="/placeholder.svg" alt={alt} class="h-16 object-contain" />
+    )
+  }
+</div>

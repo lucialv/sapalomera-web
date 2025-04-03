@@ -6,3 +6,33 @@
 .fredoka {
   font-family: "Fredoka One", system-ui;
 }
+
+@layer utilities {
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(30px, -20px);
+    }
+  }
+
+  @keyframes float2 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-20px, 25px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float2 {
+    animation: float2 8s ease-in-out infinite;
+  }
+}

@@ -105,7 +105,7 @@ export default function PostsList(): React.ReactElement {
           ))
         : posts.map((post) => (
             <li key={post.slug} className="card bg-base-100 w-96 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-              <a href={`/blog/${post.slug}/`} className="h-full flex flex-col">
+              <a href={`/noticies/${post.slug}/`} className="h-full flex flex-col">
                 <figure className="overflow-hidden">
                   <img
                     src={post.data.heroImage}

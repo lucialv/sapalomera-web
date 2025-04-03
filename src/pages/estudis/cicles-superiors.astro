@@ -1,0 +1,251 @@
+---
+import {
+  Code,
+  Server,
+  BookOpen,
+  Users,
+  Clock,
+  Info,
+  ExternalLink,
+  GraduationCap,
+} from "lucide-react";
+import Icon from "@/components/Icon.astro";
+import Layout from "@/layouts/Layout.astro";
+import AllPartners from "@/components/AllPartners.astro";
+---
+
+<Layout
+  title="Institut Sa Palomera - ESO, Batxillerat, Batxillerat nocturn i Cicles d'Informàtica a Blanes - Cicles Superiors"
+>
+  <!-- Hero -->
+  <div
+    class="relative mt-[72px] h-[150px] md:h-[250px] bg-black overflow-hidden"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/images/daw-header.jpg"
+        alt="DAW Header Image"
+        class="w-full h-full object-cover opacity-50"
+      />
+    </div>
+    <div
+      class="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8"
+    >
+      <div class="text-center">
+        <h1 class="text-4xl font-bold text-indigo-100 sm:text-5xl md:text-6xl">
+          Cicles
+          <span class="text-indigo-300">Superiors</span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secció de calendari -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-indigo-900 mb-4 flex items-center">
+        <Icon name="calendar" class="w-7 h-7 text-indigo-600 mr-3" />
+        Calendari
+      </h2>
+
+      <div class="space-y-12">
+        <!-- CFGS -->
+        <div>
+          <h3 class="text-2xl font-semibold text-indigo-900 mb-3">
+            <a
+              href="/estudis/asix"
+              class="hover:text-indigo-700 hover:underline"
+            >
+              CFGS Administració de Sistemes Informàtics en Xarxa en DUAL
+            </a>
+          </h3>
+          <ul class="list-disc list-inside text-gray-700 space-y-1 mb-4">
+            <li>Podeu trobar més informació a la web de la Generalitat:</li>
+            <li>
+              <a
+                href="https://preinscripcio.gencat.cat/ca/estudis/fp-grau-superior/inici/"
+                class="text-indigo-600 hover:underline font-semibold"
+                target="_blank"
+                rel="noopener"
+              >
+                Preinscripció i matrícula de CFGS
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://triaeducativa.gencat.cat/ca/estudis/?administracio-sistemes-informatics-xarxa&p_id=217"
+                class="text-indigo-600 hover:underline font-semibold"
+              >
+                CFGS ASIX (dual)
+              </a>
+            </li>
+          </ul>
+          <h3 class="text-2xl font-semibold text-indigo-900 mb-3">
+            <a
+              href="/estudis/daw"
+              class="hover:text-indigo-700 hover:underline"
+            >
+              CFGS Desenvolupament d'Aplicacions Web en DUAL
+            </a>
+          </h3>
+          <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <li>Podeu trobar més informació a la web de la Generalitat:</li>
+            <li>
+              <a
+                href="https://preinscripcio.gencat.cat/ca/estudis/fp-grau-superior/inici/"
+                class="text-indigo-600 hover:underline font-semibold"
+                target="_blank"
+                rel="noopener"
+              >
+                Preinscripció i matrícula de CFGS
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://triaeducativa.gencat.cat/ca/estudis?desenvolupament-aplicacions-web&p_id=770"
+                class="text-indigo-600 hover:underline font-semibold"
+              >
+                CFGS DAW (dual)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secció d'informació general -->
+  <section class="py-4 mx-6">
+    <div
+      class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-lg shadow-sm max-w-3xl mx-auto"
+    >
+      <h4 class="text-xl font-bold text-gray-900 mb-3 items-center flex">
+        <Info
+          className="inline-block mr-2 text-emerald-400 bg-emerald-100 rounded-full"
+        />
+        Per què estudiar un cicle superior?
+      </h4>
+      <h5 class="text-lg text-gray-800 mb-3">
+        Els nostres cicles t'ofereixen formació pràctica i enfocada al món
+        laboral, amb alt percentatge d'ocupació i accés directe a la
+        universitat.
+      </h5>
+      <br />
+      <ul class="space-y-2">
+        <li class="flex items-start">
+          <Icon
+            name="check-circle"
+            class="w-5 h-5 text-emerald-400 bg-emerald-100 rounded-full mt-0.5 mr-2 flex-shrink-0"
+          />
+          <span>Formació pràctica orientada al món laboral</span>
+        </li>
+        <li class="flex items-start">
+          <Icon
+            name="check-circle"
+            class="w-5 h-5 text-emerald-400 bg-emerald-100 rounded-full mt-0.5 mr-2 flex-shrink-0"
+          />
+          <span>Alta taxa d'inserció laboral</span>
+        </li>
+        <li class="flex items-start">
+          <Icon
+            name="check-circle"
+            class="w-5 h-5 text-emerald-400 bg-emerald-100 rounded-full mt-0.5 mr-2 flex-shrink-0"
+          />
+          <span>Accés directe a estudis universitaris</span>
+        </li>
+        <li class="flex items-start">
+          <Icon
+            name="check-circle"
+            class="w-5 h-5 text-emerald-400 bg-emerald-100 rounded-full mt-0.5 mr-2 flex-shrink-0"
+          />
+          <span>Pràctiques en empreses garantides</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Cicles -->
+  <section id="cicles" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h3
+        class="text-3xl flex justify-center items-center font-bold text-center text-indigo-900 mb-12"
+      >
+        <GraduationCap className="w-8 h-8 text-indigo-600 mr-2" />
+        Els nostres cicles superiors
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- DAW -->
+        <div
+          class="bg-indigo-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition"
+        >
+          <div class="flex items-center mb-4">
+            <Code className="w-9 h-9 text-indigo-600" />
+            <h4 class="text-2xl font-semibold ml-4 text-indigo-900">
+              Desenvolupament d'Aplicacions Web
+            </h4>
+          </div>
+          <p class="text-gray-700 mb-6">
+            Aprèn a crear llocs web moderns amb tecnologies frontend i backend.
+            Ideal per qui vol ser desenvolupador/a web professional.
+          </p>
+          <ul class="text-gray-600 mb-6 space-y-2">
+            <li class="flex items-center">
+              <Clock className="w-5 h-5 mr-2 text-indigo-600" /> 2 anys acadèmics
+            </li>
+            <li class="flex items-center">
+              <Users className="w-5 h-5 mr-2 text-indigo-600" /> 30 alumnes
+            </li>
+            <li class="flex items-center">
+              <BookOpen className="w-5 h-5 mr-2 text-indigo-600" /> 2363 hores de
+              formació
+            </li>
+          </ul>
+          <a
+            href="/estudis/daw"
+            class="inline-flex items-center text-indigo-600 hover:scale-105 transition-all"
+          >
+            <ExternalLink className="w-4 h-4 mr-2" />
+            Més informació
+          </a>
+        </div>
+
+        <!-- ASIX -->
+        <div
+          class="bg-indigo-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition"
+        >
+          <div class="flex items-center mb-4">
+            <Server className="w-9 h-9 text-indigo-600" />
+            <h4 class="text-2xl font-semibold ml-4 text-indigo-900">
+              Administració de Sistemes Informàtics en Xarxa
+            </h4>
+          </div>
+          <p class="text-gray-700 mb-6">
+            Converteix-te en expert en sistemes i xarxes, amb coneixements en
+            seguretat, virtualització i infraestructura TI.
+          </p>
+          <ul class="text-gray-600 mb-6 space-y-2">
+            <li class="flex items-center">
+              <Clock className="w-5 h-5 mr-2 text-indigo-600" /> 2 anys acadèmics
+            </li>
+            <li class="flex items-center">
+              <Users className="w-5 h-5 mr-2 text-indigo-600" /> 30 alumnes
+            </li>
+            <li class="flex items-center">
+              <BookOpen className="w-5 h-5 mr-2 text-indigo-600" /> 2000 hores de
+              formació
+            </li>
+          </ul>
+          <a
+            href="/estudis/asix"
+            class="inline-flex items-center text-indigo-600 hover:scale-105 transition-all"
+          >
+            <ExternalLink className="w-4 h-4 mr-2" />
+            Més informació
+          </a>
+        </div>
+      </div>
+      <AllPartners />
+    </div>
+  </section>
+</Layout>

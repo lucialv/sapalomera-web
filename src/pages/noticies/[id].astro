@@ -23,11 +23,8 @@ try {
   console.error('Error fetching post:', e);
 }
 
-// Solo procesamos los datos si no hay error
 const title = postData?.title || 'Post no encontrado';
 const pubDate = postData?.pubDate || null;
-const updatedDate = postData?.updatedDate || null;
-const heroImage = postData?.heroImage;
 const images = postData?.images || [];
 const cleanedContent = postData?.content || '';
 ---
@@ -39,15 +36,15 @@ const cleanedContent = postData?.content || '';
         <h1 class="text-2xl font-bold text-red-600 mb-4">Error</h1>
         <p class="text-gray-700 mb-6">{error}</p>
         <a 
-          href="/blog" 
+          href="/noticies" 
           class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
         >
-          Volver al blog
+          Tornar a notícies
         </a>
       </div>
     </div>
   ) : (
-    <article class="max-w-4xl mx-auto px-4 py-8">
+    <article class="max-w-4xl mx-auto px-4 py-8 mt-20">
       {images.length > 0 && (
         <>
           <!-- Breadcrumb -->
@@ -58,7 +55,7 @@ const cleanedContent = postData?.content || '';
                 <span class="mx-2">/</span>
               </li>
               <li>
-                <a href="/blog" class="hover:text-gray-900">Blog</a>
+                <a href="/noticies" class="hover:text-gray-900">Notícies</a>
                 <span class="mx-2">/</span>
               </li>
               <li class="text-gray-900 truncate max-w-[200px]" title={title}>

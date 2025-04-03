@@ -1,0 +1,484 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
+import ContentSection from "@/components/ContentSection.astro";
+import AllPartners from "@/components/AllPartners.astro";
+---
+
+<Layout
+  title="Institut Sa Palomera - ESO, Batxillerat, Batxillerat nocturn i Cicles d'Informàtica a Blanes - DAW"
+>
+  <div class="relative mt-[72px]">
+    <div class="relative h-[150px] md:h-[250px] bg-black overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/daw-header.jpg"
+          alt="DAW Header Image"
+          class="w-full h-full object-cover opacity-50"
+        />
+      </div>
+      <div
+        class="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8"
+      >
+        <div class="text-center">
+          <h1
+            class="text-4xl font-bold text-indigo-100 sm:text-5xl md:text-6xl"
+          >
+            Desenvolupament d'Aplicacions Web <br />
+            <span class="text-indigo-300">(DAW) DUAL</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div>
+          <h3
+            class="text-2xl font-semibold text-indigo-900 flex items-center gap-2 mb-4"
+          >
+            <Icon name="calendar" class="w-6 h-6" /> Calendari
+          </h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>
+              <strong>Portes Obertes: Dimarts 1 d'Abril de 2025 18:00</strong>
+            </li>
+            <li><strong>Preinscripció: Tancada</strong></li>
+            <li><strong>Matriculació: Tancada</strong></li>
+          </ul>
+          <p class="mt-4">
+            <strong>
+              <Icon name="help-circle" class="inline w-5 h-5" />
+              <a
+                href="https://triaeducativa.gencat.cat/ca/estudis/?desenvolupament-aplicacions-web&p_id=770"
+                target="_blank"
+                class="text-indigo-600 hover:text-indigo-800 transition-colors"
+              >
+                Més informació
+              </a>
+            </strong>
+          </p>
+        </div>
+
+        <div class="col-span-2">
+          <div
+            class="bg-rose-50 border-l-4 border-rose-500 p-6 rounded-lg shadow-sm"
+          >
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Important</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <Icon
+                  name="check"
+                  class="w-5 h-5 text-rose-600 mt-0.5 mr-2 flex-shrink-0"
+                />
+                <span>Cicle en modalitat <strong>DUAL</strong></span>
+              </li>
+              <li class="flex items-start">
+                <Icon
+                  name="check"
+                  class="w-5 h-5 text-rose-600 mt-0.5 mr-2 flex-shrink-0"
+                />
+                <span>9 mesos <strong>remunerats</strong> a l'empresa</span>
+              </li>
+              <li class="flex items-start">
+                <Icon
+                  name="check"
+                  class="w-5 h-5 text-rose-600 mt-0.5 mr-2 flex-shrink-0"
+                />
+                <span><strong>Alta inserció laboral</strong></span>
+              </li>
+              <li class="flex items-start">
+                <Icon
+                  name="check"
+                  class="w-5 h-5 text-rose-600 mt-0.5 mr-2 flex-shrink-0"
+                />
+                <span
+                  >Preu: <strong>505€</strong> (pel primer curs, inclosos els llibres
+                  d'anglès) i <strong>475€</strong> (pel segon curs)</span
+                >
+              </li>
+              <li class="flex items-start">
+                <Icon
+                  name="check"
+                  class="w-5 h-5 text-rose-600 mt-0.5 mr-2 flex-shrink-0"
+                />
+                <span
+                  >L'alumnat haurà de dur el seu propi
+                  <a
+                    href="https://docs.google.com/document/d/1XVZdfgwxh6zXDrEKlVxHJFZk3AlOPGPBz4Ce_8u1Ubg/edit?usp=sharing"
+                    target="_blank"
+                    class="text-indigo-600 hover:text-indigo-800 transition-colors"
+                  >
+                    ordinador portàtil
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-indigo-900 mt-8 mb-4">
+          Competència general
+        </h3>
+        <p class="text-gray-700">
+          Aquests estudis capaciten per desenvolupar implantar i mantenir
+          aplicacions web, amb independència del model emprat i utilitzant
+          tecnologies específiques, garantint l'accés a les dades de forma
+          segura i complint els criteris d'accessibilitat, usabilitat i qualitat
+          exigides en els estàndards establerts.
+        </p>
+
+        <p class="mt-4">
+          Més informació del títol al portal
+          <a
+            href="https://triaeducativa.gencat.cat/ca/fp/gs/families-professionals/informatica-comunicacions/?p_id=770&estudi"
+            target="_blank"
+            class="text-indigo-600 hover:text-indigo-800 transition-colors"
+          >
+            Tria Educativa
+          </a>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <ContentSection title="Organització" icon="puzzle-piece">
+          <p class="text-gray-700">
+            Aquesta titulació s'ofereix en modalitat <strong>Dual</strong>, amb
+            una durada de 2.363 hores de formació (1.320h lectives en un centre
+            educatiu i 1.043h <strong>remunerades</strong>
+            d'estada en un centre de treball) distribuïdes en <strong
+              >dos cursos acadèmics</strong
+            >.
+          </p>
+
+          <div class="flex mt-4">
+            <div>
+              <p class="text-gray-700">
+                En aquesta modalitat de formació professional l'estudiant esdevé
+                aprenent i combina la formació en el centre educatiu amb
+                l'activitat productiva en l'empresa.
+              </p>
+              <p class="text-gray-700 mt-2">
+                Aquest tipus de formació pretén millorar la formació de
+                l'aprenent, fent-lo participar en les activitats productives de
+                l'empresa i contribuir a la millora dels recursos humans de les
+                empreses facilitant la selecció i la captació de persones amb
+                talent.
+              </p>
+              <a href="https://projectes.xtec.cat/fpdual/" target="_blank">
+                <img
+                  src="https://agora.xtec.cat/iescirvianum/wp-content/uploads/usu134/2020/12/logos-fpdual-02.jpg"
+                  alt="Logo FP DUAL"
+                  class="h-36 object-contain ml-20 mt-4"
+                />
+              </a>
+            </div>
+          </div>
+        </ContentSection>
+
+        <ContentSection title="Accés" icon="git-branch">
+          <p class="text-gray-700">
+            Tenen accés directe al cicle les persones que compleixen algun dels
+            requisits següents:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 mt-2 text-gray-700">
+            <li>Tenir el títol de batxillerat,</li>
+            <li>
+              Tenir el títol de tècnic especialista, tècnic superior o
+              equivalent
+            </li>
+            <li>
+              Haver superat el segon curs de batxillerat de qualsevol modalitat
+              de batxillerat experimental
+            </li>
+            <li>
+              Haver superat el curs d'orientació universitària (COU) o el
+              preuniversitari
+            </li>
+            <li>Tenir qualsevol titulació universitària o una d'equivalent.</li>
+            <li>
+              Haver superat la prova d'accés a la universitat per a més grans de
+              25 anys.
+            </li>
+          </ul>
+          <p class="text-gray-700 mt-3">
+            També poden accedir les persones amb el títol de tècnic de formació
+            professional.
+          </p>
+          <p class="text-gray-700 mt-3">
+            Les persones que no compleixen cap dels requisits esmentats han de
+            superar una prova d'accés. Per presentar-s'hi cal tenir complerts 19
+            anys o bé complir-los durant l'any natural en què es realitza la
+            prova.
+          </p>
+          <p class="text-gray-700 mt-3">
+            Per obtenir <strong>més informació</strong> respecte la
+            <a
+              href="http://queestudiar.gencat.cat/ca/preinscripcio/estudis/fp-gs/documentacio/"
+              target="_blank"
+              class="text-indigo-600 hover:text-indigo-800 transition-colors"
+            >
+              documentació i els criteris de prioritat
+            </a>
+          </p>
+        </ContentSection>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <ContentSection title="Preinscripció i matrícula" icon="edit">
+          <p class="text-gray-700">
+            Per cursar el cicle cal formalitzar la sol·licitud. Enguany es
+            presentarà de forma telemàtica tal com marca el web
+            <a
+              href="http://queestudiar.gencat.cat/ca/preinscripcio/info-general/"
+              target="_blank"
+              class="text-indigo-600 hover:text-indigo-800 transition-colors"
+            >
+              http://queestudiar.gencat.cat/
+            </a>
+          </p>
+          <p class="text-gray-700 mt-3">
+            Quan el nombre de sol·licituds és superior a l'oferta, les peticions
+            s'ordenen, dins de cada via d'accés i d'acord amb les prioritats que
+            pertoqui, segons la qualificació mitjana dels estudis o la
+            qualificació de la prova que permet l'accés al cicle.
+          </p>
+          <p class="text-gray-700 mt-3">
+            Els imports de la matrícula per als centres dependents del
+            Departament d'Ensenyament són:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 mt-2 text-gray-700">
+            <li>
+              En el cas de <strong>matricular-se d'un curs complet:</strong>
+              <strong>360 €</strong>
+            </li>
+            <li>
+              En el cas de matrícula parcial, per cada unitat formativa: 25 €
+            </li>
+            <li>
+              Consulteu els supòsits d'exempcions i bonificacions generals i
+              específiques a l'apartat de
+              <a
+                href="http://ensenyament.gencat.cat/ca/departament/normativa/taxes-preus-publics/preu-public/"
+                target="_blank"
+                class="text-indigo-600 hover:text-indigo-800 transition-colors"
+              >
+                preus públics
+              </a>.
+            </li>
+          </ul>
+          <p class="text-gray-700 mt-3">
+            Com a concepte addicional es requerirà un import per material de <strong
+              >115€ (pel segon curs) i de 130€ (per primer curs, inclosos els
+              llibres d'anglès)</strong
+            > juntament amb un
+            <strong>ordinador portàtil</strong>
+            (<a
+              href="https://docs.google.com/document/d/1XVZdfgwxh6zXDrEKlVxHJFZk3AlOPGPBz4Ce_8u1Ubg/edit?usp=sharing"
+              target="_blank"
+              class="text-indigo-600 hover:text-indigo-800 transition-colors"
+            >
+              requisits tècnics
+            </a>) per poder desenvolupar el cicle.
+          </p>
+        </ContentSection>
+
+        <div>
+          <ContentSection title="Horari" icon="clock">
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start">
+                <Icon
+                  name="check"
+                  class="w-5 h-5 text-indigo-600 mt-0.5 mr-2 flex-shrink-0"
+                />
+                <span
+                  ><strong>1r curs</strong>: Íntegrament en el centre educatiu
+                  al <strong>matí</strong> (8.15h a 15.00h)</span
+                >
+              </li>
+              <li class="flex items-start">
+                <Icon
+                  name="check"
+                  class="w-5 h-5 text-indigo-600 mt-0.5 mr-2 flex-shrink-0"
+                />
+                <span
+                  ><strong>2n curs:</strong> Íntegrament en el centre educatiu a
+                  la <strong>tarda</strong> (15:00h - 20:30h) de dilluns a divendres.
+                  Al matí és l'espai horari on es realitzaran les pràctiques a l'empresa
+                  o l'estada DUAL</span
+                >
+              </li>
+            </ul>
+          </ContentSection>
+
+          <ContentSection title="Continguts" icon="book" className="mt-8">
+            <ul
+              class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-gray-700"
+            >
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Sistemes Informàtics</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Bases de Dades</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Programació</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Llenguatges de Marques</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Entorns de Desenvolupament</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Desenvolupament Web Client</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Desenvolupament Web Servidor</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Desplegament d'Aplicacions Web</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Disseny d'Interfícies Web</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Anglès professional</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Itinerari per a l'ocupabilitat I *</span>
+              </li>
+              <li class="flex items-center">
+                <Icon
+                  name="check-circle"
+                  class="w-4 h-4 text-indigo-600 mr-2 flex-shrink-0"
+                />
+                <span>Itinerari per a l'ocupabilitat II *</span>
+              </li>
+            </ul>
+            <p class="text-gray-700 mt-3 text-sm">
+              <strong>*</strong><em
+                >Mòduls convalidable si es té FOL o EIE d'un cicle de formació
+                professional LOE</em
+              >
+            </p>
+          </ContentSection>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <ContentSection title="Sortides professionals" icon="plane">
+          <p class="text-gray-700">
+            Els titulats en el CFGS de Desenvolupament d'Aplicacions Web poden
+            incorporar-se a organitzacions públiques o privades, o desenvolupar
+            una carrera per compte propi creant la pròpia empresa.
+          </p>
+          <p class="text-gray-700 mt-3">
+            L'àmbit de treball és dins el desenvolupament i manteniment
+            d'aplicacions informàtiques relacionades amb entorns web (intranet,
+            extranet i Internet).
+          </p>
+          <p class="text-gray-700 mt-3">
+            Algunes de les posicions que poden ocupar són:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 mt-2 text-gray-700">
+            <li>Programador d'aplicacions web i multimèdia</li>
+            <li>Tècnic en analítica, optimització i posicionament web</li>
+            <li>
+              Programador web - part client (<em>Front-End Developer</em>)
+            </li>
+            <li>
+              Programador web - part servidor (<em>Back-Office Developer</em>)
+            </li>
+            <li>Programador web - <em>Full-Stack Developer</em>.</li>
+            <li>Maquetador web</li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="Sortides acadèmiques" icon="graduation-cap">
+          <p class="text-gray-700">
+            Amb el títol de CFGS en Desenvolupament d'Aplicacions Web podràs
+            accedir:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 mt-2 text-gray-700">
+            <li>Un altre cicle formatiu de grau superior.</li>
+            <li>
+              Un estudi universitari oficial de grau de forma directa (sense
+              prova d'accés).
+            </li>
+          </ul>
+          <p class="text-gray-700 mt-3">
+            Les persones que s'han graduat en un cicle formatiu de grau superior
+            poden obtenir la convalidació de crèdits universitaris ECTS depenent
+            de la universitat. Pots trobar informació sobre la
+            <a
+              href="https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-cicle-formatiu/"
+              target="_blank"
+              class="text-indigo-600 hover:text-indigo-800 transition-colors"
+            >
+              correspondència de crèdits en aquest web
+            </a>. Hi has de cercar l'estudi de grau que vols cursar a la
+            universitat on desitges fer-lo.
+          </p>
+          <p class="text-gray-700 mt-3">
+            Per a més informació, consulteu el
+            <a
+              href="https://universitats.gencat.cat/ca/inici"
+              target="_blank"
+              class="text-indigo-600 hover:text-indigo-800 transition-colors"
+            >
+              Canal Universitats
+            </a>
+          </p>
+        </ContentSection>
+      </div>
+
+      <AllPartners />
+    </div>
+  </div>
+</Layout>
