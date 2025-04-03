@@ -62,9 +62,22 @@ const combinats = [
 ---
 
 <Layout title="Institut Sa Palomera - ESO, Batxillerat, Batxillerat nocturn i Cicles d'Informàtica a Blanes - La cantina">
-  <div class="max-w-7xl mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-indigo-900 mb-8">La Cantina</h1>
-    <!-- horarioo -->
+  <!-- Hero -->
+  <div class="relative mt-[72px] bg-black/90 h-[200px] flex items-center justify-center">
+    <div class="absolute inset-0 opacity-30">
+      <img
+        src="/images/cantina_head.jpg"
+        alt="Cantina Header Image"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <h1 class="relative text-5xl md:text-6xl font-bold text-indigo-300">
+      La Cantina
+    </h1>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- horario -->
     <div class="bg-indigo-50 rounded-lg shadow-sm p-4 h-32 mb-8 w-64">
       <div class="flex items-center mb-2">
         <CalendarClock className="w-6 h-6 text-indigo-600" />
