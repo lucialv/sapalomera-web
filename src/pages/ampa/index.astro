@@ -1,0 +1,155 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Users, Mail, FileText } from "lucide-react";
+---
+
+<Layout
+  title="Institut Sa Palomera - AMPA"
+>
+  <!-- Hero -->
+  <div class="relative mt-[72px] bg-black/90 h-[200px] flex items-center justify-center">
+    <div class="absolute inset-0 opacity-30">
+      <img
+        src="/images/secretaria_head.jpg"
+        alt="AMPA Header Image"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <h1 class="relative text-5xl md:text-6xl font-bold text-indigo-300">
+      AMPA
+    </h1>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Informació general -->
+      <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <FileText className="w-8 h-8 text-indigo-600" />
+            <h2 class="text-2xl font-bold text-gray-900">
+              Informació General
+            </h2>
+          </div>
+
+          <div class="space-y-6 text-gray-600">
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4">
+              <p class="text-lg">
+                La <span class="font-semibold text-indigo-600">quota</span> de l'AMPA és de <strong class="text-indigo-600">25€</strong> per fill/a.
+              </p>
+            </div>
+
+            <p class="text-lg">
+              L'AMPA <span class="font-semibold text-indigo-600">subvenciona</span> gran quantitat de <span class="font-semibold text-indigo-600">sortides i activitats</span> als seus associats.
+            </p>
+
+            <div class="space-y-4">
+              <a 
+                href="http://www.sapalomera.cat/wp-content/uploads/2021/06/Tríptic-AMPA-2.pdf"
+                class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 underline"
+              >
+                <FileText className="w-4 h-4" />
+                Més informació sobre activitats
+              </a>
+
+              <p>
+                <span class="font-semibold text-indigo-600">Si no teniu assignada una motxilla econòmica</span> de la Generalitat i voleu fer servir el val escolar per a la compra dels llibres:
+              </p>
+              <a 
+                href="https://www.sapalomera.cat/wp-content/uploads/2024/07/iddink_val_escolar_2024_2025.pdf"
+                class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 underline"
+              >
+                <FileText className="w-4 h-4" />
+                Informació sobre el procediment
+              </a>
+            </div>
+
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-4">
+              <p class="text-amber-800">
+                Si voleu <strong>fer-vos socis</strong> de l'AMPA podeu fer-ho durant el procés de compra dels llibres.
+              </p>
+            </div>
+
+            <img 
+              src="https://www.sapalomera.cat/wp-content/uploads/2024/07/venda_llibres_ampa_2024_2025.png" 
+              alt="Venda de llibres AMPA 2024-2025"
+              class="w-full rounded-lg shadow-sm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Equip i contacte -->
+      <div class="space-y-8">
+        <!-- Equip -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <Users className="w-8 h-8 text-indigo-600" />
+            <h2 class="text-2xl font-bold text-gray-900">
+              Equip
+            </h2>
+          </div>
+
+          <div class="space-y-4 text-gray-600">
+            <p class="text-lg">
+              Membres de l'Associació de Mares i Pares d'Alumnes (AMPA)
+            </p>
+
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2">
+                <span class="font-semibold text-indigo-600">Presidenta:</span> Marta Medina
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="font-semibold text-indigo-600">Secretaria:</span> María Sánchez
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="font-semibold text-indigo-600">Tresorera:</span> Cristina Burguet
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="font-semibold text-indigo-600">Vocals:</span>
+              </li>
+              <ul class="ml-6 space-y-1">
+                <li>• Anna Clopes</li>
+                <li>• Laura Redondo</li>
+                <li>• Laura Palomar</li>
+                <li>• Yolanda Contreras</li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contacte -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <Mail className="w-8 h-8 text-indigo-600" />
+            <h2 class="text-2xl font-bold text-gray-900">
+              Contacti'ns
+            </h2>
+          </div>
+
+          <div class="space-y-4 text-gray-600">
+            <p>
+              Per a qualsevol informació podeu dirigir-vos a l'adreça de correu electrònic:
+            </p>
+            <a 
+              href="mailto:ampa@sapalomera.cat"
+              class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
+            >
+              <Mail className="w-4 h-4" />
+              ampa@sapalomera.cat
+            </a>
+          </div>
+        </div>
+
+        <!-- Estatuts -->
+        <a 
+          href="https://www.sapalomera.cat/wp-content/uploads/docs/ampa/estatuts_ampa_sapalomera.pdf"
+          class="w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-6 py-3 flex items-center justify-center gap-2 transition-colors"
+        >
+          <FileText className="w-5 h-5" />
+          Estatuts de l'Associació
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
