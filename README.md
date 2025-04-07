@@ -2,9 +2,6 @@
 
 > 🌐 Web oficial de l'Institut Sa Palomera de Blanes
 
-> [!IMPORTANT]  
-> Actualment el fetching de notícies no està funcionant a causa d'un problema amb el certificat SSL de sapalomera.cat. L'error es produeix perquè el certificat intermediari no està configurat correctament, fet que causa que Vercel no confiï en el certificat i no pugui realitzar el fetching dels posts. Aquest problema es resoldrà un cop es configuri correctament el certificat a sapalomera.cat.
-
 ## 📝 Estat del Projecte
 Aquest projecte està en desenvolupament. Amb només 20 hores de treball, és normal que no s'hagin pogut implementar totes les funcionalitats demanades. És una primera versió molt bàsica que necessita molts canvis i millores.
 
